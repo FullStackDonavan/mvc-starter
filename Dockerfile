@@ -10,6 +10,10 @@ COPY . /var/www/html
 # Install PHP extensions if needed (example for PDO)
 RUN docker-php-ext-install pdo pdo_mysql
 
+# Enable the mpm_prefork module and the rewrite module
+RUN a2enmod mpm_prefork
+RUN a2enmod rewrite
+
 # Configure Apache
 COPY ./apache2.conf /etc/apache2/apache2.conf
 
