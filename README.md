@@ -11,19 +11,6 @@ Install the dependencies with the following commands:
 ```bash
 # composer
 composer install
-
-# npm
-npm install
-
-
-```
-
-## Build Assets
-
-To build the CSS assets, run:
-
-```bash
-npm run build:css
 ```
 
 ## Run Server
