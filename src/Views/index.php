@@ -1,5 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Page</title>
+    <link href="/styles/assets/tailwind.css" rel="stylesheet">
+    <script defer src="/scripts/main.js"></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
 <!-- Header -->
-<?php include("layout/header.php") ?>
+<?php include("layout/nav.php") ?>
 
     <!-- Main Content -->
     <main class="container mx-auto p-4">

@@ -1,5 +1,5 @@
 {
-    "name": "cameron/mvc-framework",
+    "name": "starter/mvc-framework",
     "autoload": {
         "psr-4": {
             "App\\": "src/"
