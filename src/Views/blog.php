@@ -20,11 +20,12 @@
                 <h2 class="text-2xl font-semibold mt-4">
                     <a href="/blog/<?php echo htmlspecialchars($post['id']); ?>" class="text-blue-500 hover:text-blue-700">
                         <?php echo htmlspecialchars($post['title']); ?>
-                    </a>
+                    
                 </h2>
                 <p class="text-gray-700">
                     <?php echo htmlspecialchars($post['excerpt']); // Assuming you have an excerpt field ?>
                 </p>
+            </a>
             <?php endforeach; ?>
         <?php else: ?>
             <p>No blog posts found.</p>

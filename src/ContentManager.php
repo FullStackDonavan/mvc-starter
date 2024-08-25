@@ -1,4 +1,3 @@
-// src/ContentManager.php
 <?php
 
 class ContentManager {
