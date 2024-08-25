@@ -1,23 +1,17 @@
-# Use the official PHP image from the Docker Hub
+# Use the official PHP image with Apache
 FROM php:7.4-apache
 
-# Set the working directory
-WORKDIR /var/www/html
+# Set the working directory to /var/www/html/public
+WORKDIR /var/www/html/public
 
-# Copy the local project files to the container
+# Copy application files to the /var/www/html directory
 COPY . /var/www/html
 
-# Install necessary PHP extensions
-RUN docker-php-ext-install mysqli
+# Install PHP extensions if needed (example for PDO)
+RUN docker-php-ext-install pdo pdo_mysql
 
-# Install Composer (for PHP dependency management)
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+# Configure Apache
+COPY ./apache2.conf /etc/apache2/apache2.conf
 
-# Install project dependencies
-RUN composer install
-
-# Expose port 80 for the Apache server
+# Expose port 80
 EXPOSE 80
-
-# Start Apache in the foreground
-CMD ["apache2-foreground"]
