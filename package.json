@@ -1,0 +1,26 @@
+{
+  "name": "mvc-starter",
+  "version": "1.0.0",
+  "description": "I'm glad you found this awesome repo.",
+  "main": "index.js",
+ "scripts": {
+  "dev": "vite",
+  "build": "vite build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FullStackDonavan/mvc-starter.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FullStackDonavan/mvc-starter/issues"
+  },
+  "homepage": "https://github.com/FullStackDonavan/mvc-starter#readme",
+  "dependencies": {
+    "vue": "^3.4.38",
+    "@vitejs/plugin-vue": "^5.1.2",
+    "vite": "^5.4.2"
+  }
+}
