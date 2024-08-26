@@ -8,7 +8,7 @@
     <link href="/js/assets/main-Ca6_g_Rz.css" rel="stylesheet">
 
     <script defer src="/scripts/main.js"></script>
-    <script src="/js/assets/main-DYYkHGQH.js" defer></script>
+    <script src="/js/assets/main-BKLs60v0.js" defer></script>
     
 </head>
 <body>

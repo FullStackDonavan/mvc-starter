@@ -65,7 +65,7 @@ import ArrowButtons from "./ArrowButtons.vue";
 const slides = ref([
   {
     image: "/img/3.jpg",
-    title: "SEO",
+    title: "Tailwind CSS",
     description: "Lorem isup klv s <br /> Lorem isup klv s da ma em da da anh",
     configurations: [
       { label: "Lorem isup klv s", value: "2022" },
@@ -75,7 +75,7 @@ const slides = ref([
   },
   {
     image: "/img/1.jpg",
-    title: "Platform",
+    title: "PHP MVC Framework ",
     description:
       "Mattis potenti quisque elit consequat id. Lorem ipsum odor amet, consectetuer adipiscing elit.",
     configurations: [
@@ -98,7 +98,7 @@ const slides = ref([
   },
   {
     image: "/img/2.jpg",
-    title: "Web Design",
+    title: "Vue 3",
     description: "Lorem isup klv s <br /> Lorem isup klv s da ma em da da anh",
     configurations: [
       { label: "Lorem isup klv s", value: "2022" },
