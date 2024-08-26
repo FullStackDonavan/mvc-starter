@@ -1,21 +1,13 @@
 import { createApp } from 'vue';
+import Slider from './components/Slider.vue';
+// import MobileNavButton from './components/MobileNavButton.vue';
 
-const App = {
-  data() {
-    return {
-      message: 'Hello from Vue!'
-    };
-  },
-  template: `<div>{{ message }}</div>`,
-  mounted() {
-    console.log(`Vue component mounted. ${this.message}`);
-    const appElement = document.querySelector('#app');
-    if (!appElement) {
-      console.error('Element with id "app" not found');
-    }else{
-        console.error('Element with id "app" found');
-    }
-  }
-};
+// App instance for Slider
+const sliderApp = createApp(Slider);
+sliderApp.mount('#slider');
 
-createApp(App).mount('#app');
+// App instance for Mobile Navigation Button
+// const mobileNavApp = createApp(MobileNavButton);
+// mobileNavApp.mount('#mobile-nav-button');
+
+// Add more instances as needed for other components

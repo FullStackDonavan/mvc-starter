@@ -6,7 +6,7 @@
     <title>Home Page</title>
     <link href="/styles/assets/tailwind.css" rel="stylesheet">
     <script defer src="/scripts/main.js"></script>
-    <script src="/js/assets/main-DZoF-Yjk.js" defer></script>
+    <script src="/js/assets/main-BS453acQ.js" defer></script>
     
 </head>
 <body class="bg-gray-100 text-gray-900">
@@ -20,6 +20,6 @@
         <div id="app"></div>
         
     </main>
-    
+    <div id="slider"></div>
 <!-- Footer -->
 <?php include("layout/footer.php") ?>
