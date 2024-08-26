@@ -38,8 +38,9 @@ php -S localhost:8000
 Open your browser and visit http://localhost:8000 to see your application running.
 ```
 
-Development
-For development, you can start the Vite development server to work with JavaScript and Vue components:
+# Development
+
+For development, you can start the Vite development server to work with Vue and Tailwind:
 
 ```bash
 # npm
