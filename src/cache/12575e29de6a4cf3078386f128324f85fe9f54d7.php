@@ -12,7 +12,7 @@
                 <?php $__currentLoopData = $posts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <div class="bg-white shadow-lg rounded-lg overflow-hidden">
                         <a href="<?php echo e(base_url('blog/' . $post['id'])); ?>">
-                            <img src="<?php echo e(asset('path/to/your/image.jpg')); ?>" alt="<?php echo e($post['title']); ?>" class="w-full h-48 object-cover">
+                            <img src="<?php echo e($post['img']); ?>" alt="<?php echo e($post['title']); ?>" class="w-full h-48 object-cover">
                             <div class="p-6">
                                 <h2 class="text-2xl font-semibold mb-2 text-blue-600 hover:text-blue-800">
                                     <?php echo e($post['title']); ?>

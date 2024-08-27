@@ -1,10 +1,11 @@
 {
-    "name": "mvc-starter",
+    "name": "donavan/mvc-starter",
     "description": "My MVC Starter Project",
     "type": "project",
     "require": {
         "illuminate/container": "^9.0",
         "jenssegers/blade": "^2.0",
+        "symfony/yaml": "*",
         "php": "^8.0"
     },
     "autoload": {

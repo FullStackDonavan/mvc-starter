@@ -12,7 +12,7 @@
                 @foreach($posts as $post)
                     <div class="bg-white shadow-lg rounded-lg overflow-hidden">
                         <a href="{{ base_url('blog/' . $post['id']) }}">
-                            <img src="{{ asset('path/to/your/image.jpg') }}" alt="{{ $post['title'] }}" class="w-full h-48 object-cover">
+                            <img src="{{ $post['img'] }}" alt="{{ $post['title'] }}" class="w-full h-48 object-cover">
                             <div class="p-6">
                                 <h2 class="text-2xl font-semibold mb-2 text-blue-600 hover:text-blue-800">
                                     {{ $post['title'] }}

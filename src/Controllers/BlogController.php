@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controller;
+use Symfony\Component\Yaml\Yaml;
 
 class BlogController extends Controller
 {
@@ -37,16 +38,34 @@ class BlogController extends Controller
 
     protected function parseMarkdownFile($filePath, $content)
     {
-        $lines = explode("\n", $content);
-        $title = trim($lines[0], "# ");
-        $excerpt = substr(strip_tags($content), 0, 100) . '...';
+        // Split the front matter and the content
+        list($frontMatter, $markdownContent) = $this->splitFrontMatter($content);
+
+        // Parse the front matter as YAML
+        $data = Yaml::parse($frontMatter);
+
+        // Extract the title from the Markdown content if not provided in the front matter
+        $title = $data['title'] ?? trim(explode("\n", $markdownContent)[0], "# ");
+        $excerpt = substr(strip_tags($markdownContent), 0, 100) . '...';
 
         return [
             'id' => pathinfo($filePath, PATHINFO_FILENAME),
             'title' => $title,
             'excerpt' => $excerpt,
-            'content' => $content,
+            'content' => $markdownContent,
+            'img' => $data['img'] ?? null, // Get image from front matter
         ];
+    }
+
+    protected function splitFrontMatter($content)
+    {
+        // Extract front matter
+        $pattern = '/^---\s*(.*?)\s*---\s*(.*)$/s';
+        if (preg_match($pattern, $content, $matches)) {
+            return [$matches[1], $matches[2]];
+        }
+
+        return [null, $content];
     }
 
     public function show($params)
