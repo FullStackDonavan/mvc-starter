@@ -10,12 +10,37 @@ class Controller
 
     public function __construct()
     {
-        // Initialize Blade with the views directory and cache directory
-        $this->blade = new Blade(__DIR__ . '/../Views', __DIR__ . '/../cache');
+        $views = __DIR__ . '/../src/Views';
+        $cache = __DIR__ . '/../src/cache';
+        $this->blade = new Blade($views, $cache);
+        
     }
 
     protected function render($view, $data = [])
     {
-        echo $this->blade->make($view, $data)->render();
+        if (!$this->blade) {
+            error_log('Rendering view: ' . $view);
+
+    try {
+        $blade = new Blade($this->viewPath, $this->cachePath);
+        $output = $blade->make($view)->render();
+        // Debugging output
+        error_log('View rendered successfully.');
+        return $output;
+    } catch (\Illuminate\Contracts\View\ViewNotFoundException $e) {
+        // Debugging output
+        error_log('View not found: ' . $e->getMessage());
+        echo 'View not found.';
+    } catch (\Exception $e) {
+        // Debugging output
+        error_log('Error rendering view: ' . $e->getMessage());
+        
+    }
+        }
+
+        echo $this->blade->make($view, $data);
+        
     }
 }
+
+

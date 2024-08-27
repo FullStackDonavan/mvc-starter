@@ -23,10 +23,8 @@ class BlogController extends Controller
                     $filePath = $postsDirectory . $file;
                     $postContent = file_get_contents($filePath);
 
-                    // Extract metadata and content from the markdown file
                     $post = $this->parseMarkdownFile($filePath, $postContent);
 
-                    // Add the post to the list if it was parsed successfully
                     if ($post) {
                         $posts[] = $post;
                     }
@@ -39,9 +37,6 @@ class BlogController extends Controller
 
     protected function parseMarkdownFile($filePath, $content)
     {
-        // Example: Basic parsing of markdown (you can enhance this with a library)
-        // Assuming the first line is the title, and the rest is the content
-
         $lines = explode("\n", $content);
         $title = trim($lines[0], "# ");
         $excerpt = substr(strip_tags($content), 0, 100) . '...';
