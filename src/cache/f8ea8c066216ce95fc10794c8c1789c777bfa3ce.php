@@ -3,18 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Page</title>
+    <title><?php echo $__env->yieldContent('title'); ?></title>
     <link href="/styles/assets/tailwind.css" rel="stylesheet">
     <link href="/js/assets/main-Ca6_g_Rz.css" rel="stylesheet">
 
     <script defer src="/scripts/main.js"></script>
     <script src="/js/assets/main-BKLs60v0.js" defer></script>
-    
 </head>
 <body>
-
-
-    <!-- Navigation Bar -->
     <header class="bg-gray-800 text-white">
         <nav class="container mx-auto flex items-center justify-between p-4 relative">
             <a href="/" class="text-2xl font-bold">Starter MVC Framework</a>
@@ -31,18 +27,15 @@
         </nav>
     </header>
 
-
-    <!-- Main Content -->
-    <main class="container mx-auto">
-       <h1>About Pagesss</h1>
-        
-        
+    <main class="">
+        <?php echo $__env->yieldContent('content'); ?>
     </main>
-    <!-- Footer -->
+
     <footer class="bg-gray-800 text-white py-4">
         <div class="container mx-auto text-center">
             <p>&copy; 2024 MyWebsite. All rights reserved.</p>
         </div>
     </footer>
 </body>
-</html><?php /**PATH D:\projects\_LEARNING\mvc-starter\src\Views//about.blade.php ENDPATH**/ ?>
+</html>
+<?php /**PATH D:\projects\_LEARNING\mvc-starter\src\Views/layouts/main.blade.php ENDPATH**/ ?>
