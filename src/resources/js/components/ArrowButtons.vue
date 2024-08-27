@@ -40,22 +40,21 @@ export default {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: #ddd; /* Darker circle for light mode */
+  background-color: #ddd;
   border: none;
-  color: #555; /* Original text color */
+  color: #555;
   font-family: monospace;
   font-weight: bold;
   transition: 0.5s;
 }
 
 .arrows button:hover:enabled {
-  background-color: #bbb; /* Slightly darker circle on hover */
+  background-color: #bbb;
 }
 
-/* Dark mode styling (if using a class to toggle dark mode) */
 body.dark-mode .arrows button {
-  background-color: #555; /* Darker circle for dark mode */
-  color: #fff; /* Light text color for dark mode */
+  background-color: #555;
+  color: #fff;
 }
 
 .arrows button:disabled {

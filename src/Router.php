@@ -13,7 +13,7 @@ class Router
     public function __construct()
     {
         $this->viewPath = __DIR__ . '/Views';
-        $this->cachePath = __DIR__ . '/Cache'; // Ensure this directory exists
+        $this->cachePath = __DIR__ . '/Cache'; 
 
         // Debugging output
         error_log('Router initialized.');

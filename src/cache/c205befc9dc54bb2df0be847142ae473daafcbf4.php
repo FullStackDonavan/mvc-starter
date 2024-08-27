@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Page</title>
     <link href="/styles/assets/tailwind.css" rel="stylesheet">
-    <link href="/js/assets/main-Ca6_g_Rz.css" rel="stylesheet">
+    <link href="/js/assets/main-BKLs60v0.js" rel="stylesheet">
 
     <script defer src="/scripts/main.js"></script>
     <script src="/js/assets/main-BKLs60v0.js" defer></script>

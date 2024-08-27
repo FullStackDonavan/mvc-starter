@@ -6,7 +6,7 @@ require '../src/Container.php';
 require '../src/Controllers/HomeController.php';
 require '../src/Controllers/AboutController.php';
 require '../src/Controllers/BlogController.php';
-require_once __DIR__ . '/../src/helpers.php'; // Adjust the path to where your helpers file is located
+require_once __DIR__ . '/../src/helpers.php'; 
 
 use App\Container;
 use App\Router;
