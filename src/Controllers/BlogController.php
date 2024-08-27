@@ -55,7 +55,7 @@ class BlogController extends Controller
         $post = $this->getPostById($postId);
 
         if ($post) {
-            $this->render('blog-post', ['post' => $post]);
+            $this->render('post', ['post' => $post]);
         } else {
             echo "Post not found";
         }

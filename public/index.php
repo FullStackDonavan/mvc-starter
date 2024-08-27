@@ -34,6 +34,7 @@ $router->add('blog', [BlogController::class, 'index']); // Route for the Blog in
 $router->add('blog/{id}', [BlogController::class, 'show']); // Route for individual blog post by ID
 $router->add('blog/slug/{slug}', [BlogController::class, 'showBySlug']); // Route for individual blog post by slug
 
+
 // Dispatch a URI
 $uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/'); // Get the current URI
 $router->dispatch($uri);
