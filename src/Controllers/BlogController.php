@@ -8,10 +8,7 @@ class BlogController extends Controller
 {
     public function index()
     {
-        // Fetch posts from the filesystem
         $posts = $this->getAllPosts();
-
-        // Pass the posts to the view
         $this->render('blog', ['posts' => $posts]);
     }
 

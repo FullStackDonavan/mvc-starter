@@ -2,12 +2,10 @@
 
 namespace App\Controllers;
 
-use App\Controller;
-
-class AboutController extends Controller
+class AboutController
 {
     public function index()
     {
-        $this->render('about');
+        return 'about'; // Return the view name without the `.blade.php` extension
     }
 }

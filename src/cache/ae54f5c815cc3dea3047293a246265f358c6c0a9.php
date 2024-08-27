@@ -1,3 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link href="/styles/assets/tailwind.css" rel="stylesheet">
+    <link href="/js/assets/main-Ca6_g_Rz.css" rel="stylesheet">
+
+    <script defer src="/scripts/main.js"></script>
+    <script src="/js/assets/main-BKLs60v0.js" defer></script>
+    
+</head>
+<body>
 
 
     <!-- Navigation Bar -->
@@ -16,3 +30,22 @@
             </ul>
         </nav>
     </header>
+
+
+    <!-- Main Content -->
+    <main class="container mx-auto">
+       
+        
+        
+    </main>
+    <div id="slider"></div>
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-4">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 MyWebsite. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
+
+<?php /**PATH D:\projects\_LEARNING\mvc-starter\src\Views/index.blade.php ENDPATH**/ ?>
