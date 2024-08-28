@@ -1,14 +1,16 @@
 @extends('layouts.main')
 
-@section('title', 'About Page')
+@section('title', 'Home Page')
 
     @section('content')
     <!-- Main Content -->
+    <div id="slider"></div>
     <main class="container mx-auto">
+       <h1>Hello</h1>
        
         
         
     </main>
-    <div id="slider"></div>
+    
     @endsection  
     

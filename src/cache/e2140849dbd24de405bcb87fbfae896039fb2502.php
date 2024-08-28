@@ -1,6 +1,6 @@
 
 
-<?php $__env->startSection('title', 'About Page'); ?>
+<?php $__env->startSection('title', 'Post Page'); ?>
 
 <?php $__env->startSection('content'); ?>
 
@@ -12,8 +12,7 @@
         <article class="prose">
             <?php echo nl2br(htmlspecialchars($post['content'])); ?>
         </article>
+        </main>
     </main>
-        
-    </main>
-    <?php $__env->stopSection(); ?>  
+<?php $__env->stopSection(); ?>  
 <?php echo $__env->make('layouts.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\projects\_LEARNING\mvc-starter\src\Views/post.blade.php ENDPATH**/ ?>

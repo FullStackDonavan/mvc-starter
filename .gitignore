@@ -1,4 +1,4 @@
-# Composer dependencies
+.env
 /vendor/
 
 /node_modules/

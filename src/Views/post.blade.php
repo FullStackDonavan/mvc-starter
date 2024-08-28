@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'About Page')
+@section('title', 'Post Page')
 
 @section('content')
 
@@ -12,7 +12,6 @@
         <article class="prose">
             <?php echo nl2br(htmlspecialchars($post['content'])); ?>
         </article>
+        </main>
     </main>
-        
-    </main>
-    @endsection  
+@endsection  

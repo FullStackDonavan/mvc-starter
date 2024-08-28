@@ -21,6 +21,39 @@ class Router
         error_log('Cache Path: ' . $this->cachePath);
     }
 
+    // Add routes for GET requests
+    public function get($route, $callback)
+    {
+        $this->addRoute('GET', $route, $callback);
+    }
+
+    // Add routes for POST requests
+    public function post($route, $callback)
+    {
+        $this->addRoute('POST', $route, $callback);
+    }
+
+    // Add routes for PUT requests
+    public function put($route, $callback)
+    {
+        $this->addRoute('PUT', $route, $callback);
+    }
+
+    // Add routes for DELETE requests
+    public function delete($route, $callback)
+    {
+        $this->addRoute('DELETE', $route, $callback);
+    }
+
+    // Add route to the routes array with the specified HTTP method
+    protected function addRoute($method, $route, $callback)
+    {
+        $route = preg_replace('/\{(\w+)\}/', '(?P<$1>[^/]+)', $route);
+        $this->routes[$method][$route] = $callback;
+
+        error_log("Route added: [$method] " . $route);
+    }
+
     public function add($route, $callback)
     {
         $route = preg_replace('/\{(\w+)\}/', '(?P<$1>[^/]+)', $route);
@@ -30,6 +63,7 @@ class Router
         error_log('Route added: ' . $route);
         error_log('Callback: ' . print_r($callback, true));
     }
+    
 
     public function dispatch($uri)
     {
@@ -44,27 +78,27 @@ class Router
                 error_log('Route matched: ' . $route);
                 error_log('Parameters: ' . print_r($params, true));
 
-                if (class_exists($callback[0]) && method_exists($callback[0], $callback[1])) {
-                    $controller = new $callback[0]();
+                if (is_array($callback) && isset($callback[0], $callback[1])) {
+                    $controller = $callback[0];
                     $method = $callback[1];
-                    $view = $controller->$method($params);
+                    
+                    if (class_exists($controller) && method_exists($controller, $method)) {
+                        $instance = new $controller();
+                        $view = $instance->$method($params);
 
-                    // Debugging output
-                    error_log('View returned from controller: ' . $view);
+                        // Debugging output
+                        error_log('View returned from controller: ' . $view);
 
-                    return $this->render($view);
-                } else {
-                    // Debugging output
-                    error_log('Error: Controller or method does not exist.');
-                    echo "404 Not Found";
-                    return;
+                        return $this->render($view);
+                    } else {
+                        // Debugging output
+                        error_log('Error: Controller or method does not exist.');
+                        echo "404 Not Found";
+                        return;
+                    }
                 }
             }
         }
-
-        // Debugging output
-        error_log('Error: No matching route found.');
-        echo "404 Not Found";
     }
 
     protected function render($view)
