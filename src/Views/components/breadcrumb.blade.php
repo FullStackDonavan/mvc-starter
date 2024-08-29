@@ -3,7 +3,8 @@
         @foreach ($breadcrumbs as $breadcrumb)
             @if ($breadcrumb['url'] && !$loop->last)
                 <li class="flex items-center">
-                    <a href="{{ $breadcrumb['url'] }}" class="text-blue-600 hover:text-blue-800">
+                    <a href="{{ $breadcrumb['url'] }}" 
+                       class="text-blue-600 hover:text-blue-800 transition-all duration-200 ease-in-out hover:font-bold">
                         {{ $breadcrumb['title'] }}
                     </a>
                     <!-- Separator -->

@@ -3,7 +3,8 @@
         <?php $__currentLoopData = $breadcrumbs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $breadcrumb): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <?php if($breadcrumb['url'] && !$loop->last): ?>
                 <li class="flex items-center">
-                    <a href="<?php echo e($breadcrumb['url']); ?>" class="text-blue-600 hover:text-blue-800">
+                    <a href="<?php echo e($breadcrumb['url']); ?>" 
+                       class="text-blue-600 hover:text-blue-800 transition-all duration-200 ease-in-out hover:font-bold">
                         <?php echo e($breadcrumb['title']); ?>
 
                     </a>
