@@ -23,7 +23,8 @@
             <ul id="menu" class="hidden lg:flex lg:items-center lg:space-x-4 absolute lg:static lg:bg-transparent lg:flex-row lg:space-x-4 bg-gray-800 w-full left-0 top-full mt-1 lg:mt-0 lg:w-auto">
                 <li><a href="/" class="block px-4 py-2 text-gray-300 hover:text-white">Home</a></li>
                 <li><a href="/about" class="block px-4 py-2 text-gray-300 hover:text-white">About</a></li>
-                <li><a href="/blog" class="block px-4 py-2 text-gray-300 hover:text-white">Blog</a></li>
+                <li><a href="/blog" class="block px-4 py-2 text-gray-300 hover:text-white">Markdown Blog</a></li>
+                <li><a href="/wpposts" class="block px-4 py-2 text-gray-300 hover:text-white">WordPress Blog</a></li>
             </ul>
         </nav>
     </header>

@@ -1,26 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WordPress Posts</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.10/dist/tailwind.min.css" rel="stylesheet">
-</head>
-<body class="bg-gray-100 p-6">
 
-    <div class="container mx-auto">
-        <h1 class="text-3xl font-bold mb-6">WordPress Posts</h1>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <?php $__currentLoopData = $posts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                <div class="bg-white p-4 shadow rounded">
-                    <h2 class="text-xl font-bold mb-2"><?php echo e($post['title']['rendered']); ?></h2>
-                    <p class="text-gray-700 mb-4"><?php echo e(strip_tags($post['excerpt']['rendered']), 150); ?></p>
-                    <a href="<?php echo e($post['link']); ?>" class="text-blue-500 hover:underline">Read more</a>
-                </div>
-            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-        </div>
+
+<?php $__env->startSection('title', 'WordPress Posts'); ?>
+<?php $__env->startSection('description', 'WordPress Posts description for SEO'); ?>
+
+<?php $__env->startSection('content'); ?>
+
+<div class="container mx-auto">
+    <h1 class="text-3xl font-bold mb-6">WordPress Posts</h1>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <?php $__currentLoopData = $posts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                <a href="<?php echo e($post['link']); ?>">
+                    <!-- Assuming 'featured_image' is the key for post images -->
+                    <img src="<?php echo e($post['featured_image_url'] ?? '/path/to/default-image.jpg'); ?>" alt="<?php echo e($post['title']['rendered']); ?>" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h2 class="text-2xl font-semibold mb-2 text-blue-600 hover:text-blue-800">
+                            <?php echo e($post['title']['rendered']); ?>
+
+                        </h2>
+                        <p class="text-gray-700 mb-4">
+                            <?php echo e(strip_tags($post['excerpt']['rendered'])); ?>
+
+                        </p>
+                        <span class="text-blue-500 font-semibold">Read More</span>
+                    </div>
+                </a>
+            </div>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </div>
+</div>
 
-</body>
-</html>
-<?php /**PATH D:\projects\_LEARNING\mvc-starter\src\Views/wpposts.blade.php ENDPATH**/ ?>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\projects\_LEARNING\mvc-starter\src\Views/wpposts.blade.php ENDPATH**/ ?>
