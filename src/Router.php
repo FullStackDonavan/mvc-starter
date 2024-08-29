@@ -101,18 +101,35 @@ class Router
         }
     }
 
+   
+
+
+
     protected function render($view)
     {
         // Debugging output
         error_log('Rendering view: ' . $view);
 
         try {
+            // Define custom view paths
+            $viewPaths = [
+                __DIR__ . '/Views',
+                // Add other paths if necessary
+            ];
+
+            // Initialize Blade with custom view paths and cache path
+        
             $blade = new Blade($this->viewPath, $this->cachePath);
+            // Render the view
             echo $blade->make($view)->render();
         } catch (\Exception $e) {
             // Debugging output
             error_log('Error rendering view: ' . $e->getMessage());
-            
+            echo "Error rendering view: " . $e->getMessage();
         }
     }
 }
+
+
+
+

@@ -3,7 +3,7 @@
 <?php $__env->startSection('title', 'Home Page'); ?>
 
 <?php $__env->startSection('content'); ?>
-    <!-- Main Content -->
+
     <div id="slider"></div>
     <main class="container mx-auto">
        <h1>Hello</h1>   

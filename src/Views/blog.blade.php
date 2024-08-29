@@ -3,10 +3,14 @@
 @section('title', 'Blog')
 
 @section('content')
-    <!-- Main Content -->
+@include('components.breadcrumb', [
+        'breadcrumbs' => [
+            ['title' => 'Home', 'url' => '/'],
+            ['title' => 'Blog Page', 'url' => '']
+        ]
+    ])
     <main class="container mx-auto">
         <h1 class="text-4xl font-bold mb-6 text-center">Blog Index</h1>
-    
         @if(isset($posts) && is_array($posts) && count($posts) > 0)
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                 @foreach($posts as $post)
@@ -30,4 +34,4 @@
             <p class="text-center text-gray-600">No blog posts found.</p>
         @endif
     </main>
-    @endsection  
+@endsection  

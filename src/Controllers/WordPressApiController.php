@@ -15,7 +15,7 @@ class WordPressApiController
     public function __construct()
     {
         $baseUrl = getenv('API_BASE_URL');
-        $this->httpClient = new HttpClient('http://localhost/wordpress/wp-json/wp/v2/', [
+        $this->httpClient = new HttpClient('https://allcountywaterproofing.com/wp-json/wp/v2/', [
             'Authorization: Basic ' . base64_encode(getenv('admin') . ':' . 'InO2 eRTu GlRJ oTz5 2S49 NQdR')
         ]);
         $this->viewPath = __DIR__ . '/../Views';

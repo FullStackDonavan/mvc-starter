@@ -2,8 +2,9 @@
 module.exports = {
   mode: 'jit',
   content: [
-    './public/**/*.php',
+    './src/Views/**/*.blade.php',
     './src/Views/**/*.php',
+    './public/**/*.html',
     './src/resources/js/components/**/*.vue',
   ],
   theme: {

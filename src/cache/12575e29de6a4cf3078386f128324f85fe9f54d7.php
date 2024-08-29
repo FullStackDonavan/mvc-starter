@@ -3,10 +3,14 @@
 <?php $__env->startSection('title', 'Blog'); ?>
 
 <?php $__env->startSection('content'); ?>
-    <!-- Main Content -->
+<?php echo $__env->make('components.breadcrumb', [
+        'breadcrumbs' => [
+            ['title' => 'Home', 'url' => '/'],
+            ['title' => 'Blog Page', 'url' => '']
+        ]
+    ], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <main class="container mx-auto">
         <h1 class="text-4xl font-bold mb-6 text-center">Blog Index</h1>
-    
         <?php if(isset($posts) && is_array($posts) && count($posts) > 0): ?>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                 <?php $__currentLoopData = $posts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -32,6 +36,6 @@
             <p class="text-center text-gray-600">No blog posts found.</p>
         <?php endif; ?>
     </main>
-    <?php $__env->stopSection(); ?>  
+<?php $__env->stopSection(); ?>  
 
 <?php echo $__env->make('layouts.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\projects\_LEARNING\mvc-starter\src\Views/blog.blade.php ENDPATH**/ ?>

@@ -23,6 +23,10 @@ class HttpClient
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, strtoupper($method));
 
+        //remove this on production. This is only for testing locally
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+
         if (!empty($this->headers)) {
             curl_setopt($ch, CURLOPT_HTTPHEADER, $this->headers);
         }

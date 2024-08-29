@@ -4,6 +4,12 @@
 @section('description', 'About Page description for seo')
 
 @section('content')
+@include('components.breadcrumb', [
+        'breadcrumbs' => [
+            ['title' => 'Home', 'url' => '/'],
+            ['title' => 'About Page', 'url' => '/about']
+        ]
+    ])
     <div class="container mx-auto py-8">
         <h1 class="text-4xl font-bold mb-6 text-center">About Our MVC Framework</h1>
         <div class="bg-white shadow-lg rounded-lg p-6">
