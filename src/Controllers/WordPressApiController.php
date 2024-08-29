@@ -1,9 +1,10 @@
 <?php
-
 namespace App\Controllers;
 
-use App\HttpClient;
+use App\Models\HttpClient;
 use Jenssegers\Blade\Blade;
+
+use Exception;
 
 class WordPressApiController
 {
@@ -13,30 +14,36 @@ class WordPressApiController
 
     public function __construct()
     {
-        $this->httpClient = new HttpClient();
+        $baseUrl = getenv('API_BASE_URL');
+        $this->httpClient = new HttpClient('http://localhost/wordpress/wp-json/wp/v2/', [
+            'Authorization: Basic ' . base64_encode(getenv('admin') . ':' . 'InO2 eRTu GlRJ oTz5 2S49 NQdR')
+        ]);
         $this->viewPath = __DIR__ . '/../Views';
         $this->cachePath = __DIR__ . '/../Cache';
     }
 
     public function fetchPosts()
     {
-        // Fetch posts from the API
         $response = $this->httpClient->get('posts');
-        $posts = json_decode($response, true);
-
-        // Use Blade to render the view with posts
-        $blade = new Blade($this->viewPath, $this->cachePath);
-        echo $blade->make('wpposts', ['posts' => $posts])->render();
+        
+        if ($response['status_code'] === 200) {
+            $posts = $response['response'];
+            $blade = new Blade($this->viewPath, $this->cachePath);
+            echo $blade->make('wpposts', ['posts' => $posts])->render();
+        } else {
+            // Log detailed error message for debugging
+            throw new \Exception('API request failed with status code: ' . $response['status_code'] . ' and response: ' . json_encode($response['response']));
+        }
     }
+    
 
-    // Fetch a single post by ID from the WordPress API
+
     public function fetchPostById($id)
     {
-        $response = $this->client->get("/posts/{$id}");
+        $response = $this->httpClient->get("/posts/{$id}");
         return $response['response'];
     }
 
-    // Create a new post via the WordPress API
     public function createPost($title, $content, $status = 'draft')
     {
         $data = [
@@ -44,11 +51,10 @@ class WordPressApiController
             'content' => $content,
             'status'  => $status,
         ];
-        $response = $this->client->post('/posts', $data);
+        $response = $this->httpClient->post('/posts', $data);
         return $response['response'];
     }
 
-    // Update an existing post by ID
     public function updatePost($id, $title = null, $content = null, $status = null)
     {
         $data = array_filter([
@@ -56,14 +62,13 @@ class WordPressApiController
             'content' => $content,
             'status'  => $status,
         ]);
-        $response = $this->client->put("/posts/{$id}", $data);
+        $response = $this->httpClient->put("/posts/{$id}", $data);
         return $response['response'];
     }
 
-    // Delete a post by ID
     public function deletePost($id)
     {
-        $response = $this->client->delete("/posts/{$id}");
+        $response = $this->httpClient->delete("/posts/{$id}");
         return $response['response'];
     }
 }

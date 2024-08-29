@@ -41,7 +41,7 @@ $router->add('blog/{id}', [BlogController::class, 'show']); // Route for individ
 $router->add('blog/slug/{slug}', [BlogController::class, 'showBySlug']); // Route for individual blog post by slug
 
 
-$router->add('/wpposts', [WordPressApiController::class, 'fetchPosts']);
+$router->add('wpposts', [WordPressApiController::class, 'fetchPosts']);
 
 
 // $router->get('/wp/posts/{id}', 'WordPressApiController@fetchPostById');

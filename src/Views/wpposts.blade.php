@@ -14,7 +14,7 @@
             @foreach ($posts as $post)
                 <div class="bg-white p-4 shadow rounded">
                     <h2 class="text-xl font-bold mb-2">{{ $post['title']['rendered'] }}</h2>
-                    <p class="text-gray-700 mb-4">{{ Str::limit(strip_tags($post['excerpt']['rendered']), 150) }}</p>
+                    <p class="text-gray-700 mb-4">{{ strip_tags($post['excerpt']['rendered']), 150 }}</p>
                     <a href="{{ $post['link'] }}" class="text-blue-500 hover:underline">Read more</a>
                 </div>
             @endforeach

@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @section('title', 'About Page')
+@section('description', 'About Page description for seo')
 
 @section('content')
     <div class="container mx-auto py-8">

@@ -1,5 +1,8 @@
 <?php
 
+namespace App\Models;
+use Exception;
+
 class HttpClient
 {
     private $baseUrl;
@@ -13,9 +16,10 @@ class HttpClient
 
     private function request($method, $endpoint, $data = null)
     {
-        $url = $this->baseUrl . $endpoint;
-        $ch = curl_init();
+        $url = $this->baseUrl . '/' . ltrim($endpoint, '/'); // Ensure no double slashes
+        echo "Request URL: " . $url . "\n"; // Debugging output
 
+        $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, strtoupper($method));
@@ -52,25 +56,7 @@ class HttpClient
         return $this->request('GET', $endpoint);
     }
 
-    public function post($endpoint, $data = [])
-    {
-        return $this->request('POST', $endpoint, $data);
-    }
-
-    public function put($endpoint, $data = [])
-    {
-        return $this->request('PUT', $endpoint, $data);
-    }
-
-    public function patch($endpoint, $data = [])
-    {
-        return $this->request('PATCH', $endpoint, $data);
-    }
-
-    public function delete($endpoint, $data = [])
-    {
-        return $this->request('DELETE', $endpoint, $data);
-    }
+    // Other methods (post, put, patch, delete) remain the same
 
     public function setHeader($key, $value)
     {

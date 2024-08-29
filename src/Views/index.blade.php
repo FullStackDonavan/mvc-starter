@@ -2,15 +2,11 @@
 
 @section('title', 'Home Page')
 
-    @section('content')
+@section('content')
     <!-- Main Content -->
     <div id="slider"></div>
     <main class="container mx-auto">
-       <h1>Hello</h1>
-       
-        
-        
-    </main>
-    
-    @endsection  
+       <h1>Hello</h1>   
+    </main> 
+@endsection  
     

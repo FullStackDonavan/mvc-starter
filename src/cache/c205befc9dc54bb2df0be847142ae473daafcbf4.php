@@ -1,6 +1,7 @@
 
 
 <?php $__env->startSection('title', 'About Page'); ?>
+<?php $__env->startSection('description', 'About Page description for seo'); ?>
 
 <?php $__env->startSection('content'); ?>
     <div class="container mx-auto py-8">
